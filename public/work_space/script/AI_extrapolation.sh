@@ -50,7 +50,7 @@ run_project() {
 
 start_project() {
   if [ "$(pgrep run | wc -l)" = 1 ]; then
-    pass
+    printf "Running"
   else
     {
       run_project
@@ -63,50 +63,42 @@ stop_project() {
     kill "$(pgrep run)"
   else
     {
-      pass
+      printf "Please execute start"
     }
   fi
 }
 
 restart_project() {
   stop_project
+  sleep 10
+  printf "Wait 10s"
   start_project
 }
 
 # main
-set -- "$(getopt -o h --long start,stop,restart -- "$@")"
 while true;
-#while getopts ":a:b:c:" n;
 do
   case $1 in
   --start)
     start_project;
-    shift
     ;;
   --stop)
     stop_project;
-    shift
     ;;
   --restart)
     restart_project;
-    shift
     ;;
   -h | --help)
-    printf "Usage: \n--start    Start Service\n--stop    Stop Service\n-h, --help    display this help and exit\n";
-    return 0;
-    shift;
-    ;;
-  --)
-    shift;
-    break
+    printf "\t\t\tUsage: \n\t\t\t\t--start\t\t\tStart Service\n\t\t\t\t--stop\t\t\tStop Service\n\t\t\t\t-h, --help\t\tdisplay this help and exit\n";
     ;;
   *)
-    options_error="Invalid option"
-    printf "\033[41;37m %s \033[0m\n" "$options_error"
+    options_error="Invalid option";
+    printf "\033[41;37m %s \033[0m\n" "$options_error";
+    break
     ;;
   esac
 done
 
-for param in "$@"; do
-  echo "Param: $param"
-done
+#for param in "$@"; do
+#  echo "Param: $param"
+#done
