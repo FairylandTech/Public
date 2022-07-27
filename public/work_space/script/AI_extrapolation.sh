@@ -93,8 +93,7 @@ do
     break;
     ;;
   -h | --help)
-    printf "\t\t\tUsage: \n\t\t\t\t--start\t\t\tStart Service\n\t\t\t\t--restart\t\t\tRestart Service\n\t\t\t\t--stop\t\t\tStop Service\n\t\t\t\t-h, 
-    --help\t\tdisplay this help and exit\n";
+    printf "\t\t\tUsage: \n\t\t\t\t--start\t\t\tStart Service\n\t\t\t\t--restart\t\t\tRestart Service\n\t\t\t\t--stop\t\t\tStop Service\n\t\t\t\t-h, --help\t\tdisplay this help and exit\n";
     break;
     ;;
   *)
