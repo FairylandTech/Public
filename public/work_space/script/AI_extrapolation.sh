@@ -22,7 +22,7 @@ static_user() {
     pass
   else
     {
-      printf "Insufficient Permissions, Use root Privileges"
+      printf "Insufficient Permissions, Use root Privileges\n"
     }
   fi
 }
@@ -51,7 +51,7 @@ run_project() {
 start_project() {
   static_user
   if [ "$(pgrep run | wc -l)" = 1 ]; then
-    printf "Running"
+    printf "Running\n"
   else
     {
       run_project
@@ -65,7 +65,7 @@ stop_project() {
     kill "$(pgrep run)"
   else
     {
-      printf "Please execute start"
+      printf "Please execute start\n"
     }
   fi
 }
@@ -73,7 +73,7 @@ stop_project() {
 restart_project() {
   stop_project
   sleep 10
-  printf "Wait 10s"
+  printf "wait 10s\n"
   start_project
 }
 
@@ -83,18 +83,22 @@ do
   case $1 in
   --start)
     start_project;
+    break;
     ;;
   --stop)
     stop_project;
+    break;
     ;;
   --restart)
     restart_project;
+    break;
     ;;
   -h | --help)
     printf "\t\t\tUsage: \n\t\t\t\t--start\t\t\tStart Service\n\t\t\t\t--stop\t\t\tStop Service\n\t\t\t\t-h, --help\t\tdisplay this help and exit\n";
+    break;
     ;;
   *)
-    options_error="Invalid option";
+    options_error="Invalid option, Please execute -h or --help";
     printf "\033[41;37m %s \033[0m\n" "$options_error";
     break
     ;;
