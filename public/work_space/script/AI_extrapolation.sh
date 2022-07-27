@@ -47,6 +47,7 @@ run_project() {
   local str_a="Please check program path"
   cd "$(PROJECT_HOME)" || printf "\033[41;37m Error: Not Found %s \033[0m\n" "$PROJECT_HOME" && printf "\033[41;37m %s \033[0m\n" "$str_a"
   nohup python -u run.py >./logs/run.log 2>&1 &
+  printf "Output log file to: %s/logs/run.log" "$PROJECT_HOME"
 }
 
 start_project() {
