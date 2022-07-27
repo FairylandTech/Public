@@ -19,7 +19,7 @@ CONDA_ENVIRONMENT_NAME=""
 # Change User --> root
 static_user() {
   if [ "$(whoami)" = root ]; then
-    pass
+    environment_config
   else
     {
       printf "Insufficient Permissions, Use root Privileges\n"
@@ -42,6 +42,7 @@ environment_config() {
 }
 
 run_project() {
+  static_user
   mkdir -p "$PROJECT_HOME"/logs
   local str_a="Please check program path"
   cd "$(PROJECT_HOME)" || printf "\033[41;37m Error: Not Found %s \033[0m\n" "$PROJECT_HOME" && printf "\033[41;37m %s \033[0m\n" "$str_a"
@@ -49,7 +50,6 @@ run_project() {
 }
 
 start_project() {
-  static_user
   if [ "$(pgrep run | wc -l)" = 1 ]; then
     printf "Running\n"
   else
@@ -60,9 +60,8 @@ start_project() {
 }
 
 stop_project() {
-  static_user
   if [ "$(pgrep run | wc -l)" = 1 ]; then
-    kill "$(pgrep run)"
+    sudo kill "$(pgrep run)"
   else
     {
       printf "Please execute start\n"
