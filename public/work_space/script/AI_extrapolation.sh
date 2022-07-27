@@ -22,7 +22,7 @@ static_user() {
     pass
   else
     {
-      su - root
+      printf "Insufficient Permissions, Use root Privileges"
     }
   fi
 }
@@ -49,6 +49,7 @@ run_project() {
 }
 
 start_project() {
+  static_user
   if [ "$(pgrep run | wc -l)" = 1 ]; then
     printf "Running"
   else
@@ -59,6 +60,7 @@ start_project() {
 }
 
 stop_project() {
+  static_user
   if [ "$(pgrep run | wc -l)" = 1 ]; then
     kill "$(pgrep run)"
   else
