@@ -9,7 +9,7 @@
 # Telegram: @AliceEngineer
 # E-mail(Chinese Mainland): private.profession@foxmail.com
 # E-mail(Global): alice.engineer.pro@gmail.com
-# Created Time: 2022Äê07ÔÂ27ÈÕ ÐÇÆÚÈý 10Ê±01·Ö18Ãë
+# Created Time: 2022å¹´07æœˆ27æ—¥ æ˜ŸæœŸä¸‰ 10æ—¶01åˆ†18ç§’
 #########################################################################
 
 # Global Variables

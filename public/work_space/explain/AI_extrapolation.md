@@ -1,30 +1,30 @@
-# ¹ØÓÚAI_extrapolation.sh½Å±¾ÎÄ¼şËµÃ÷
+# å…³äºAI_extrapolation.shè„šæœ¬æ–‡ä»¶è¯´æ˜
 
-## Part1: ĞŞ¸Ä½Å±¾»·¾³±äÁ¿
+## Part1: ä¿®æ”¹è„šæœ¬ç¯å¢ƒå˜é‡
 
 ```bash
-# ĞŞ¸ÄÈ«¾Ö»·¾³±äÁ¿
-# ÏîÄ¿Â·¾¶
+# ä¿®æ”¹å…¨å±€ç¯å¢ƒå˜é‡
+# é¡¹ç›®è·¯å¾„
 PROJECT_HOME=""
 # example:
 # PROJECT_HOME="/home/alice/project/ai_obj"
-# conda ÔËĞĞ»·¾³µÄÃû³Æ
+# conda è¿è¡Œç¯å¢ƒçš„åç§°
 CONDA_ENVIRONMENT_NAME=""
 # example:
 # CONDA_ENVIRONMENT_NAME="radar_env_ai_obj"
 
 ```
 
-## Part2: ½Å±¾ÔËĞĞ
+## Part2: è„šæœ¬è¿è¡Œ
 
 ```bash
-# Æô¶¯
+# å¯åŠ¨
 AI_extrapolation --start
-# Í£Ö¹
+# åœæ­¢
 AI_extrapolation --stop
-# ÖØÆô
+# é‡å¯
 AI_extrapolation --restart
-# °ïÖú
+# å¸®åŠ©
 AI_extrapolation -h
 AI_extrapolation --help
 ```
