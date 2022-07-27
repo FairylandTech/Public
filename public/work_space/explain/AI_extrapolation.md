@@ -19,12 +19,12 @@ CONDA_ENVIRONMENT_NAME=""
 
 ```bash
 # 启动
-AI_extrapolation --start
+AI_extrapolation.sh --start
 # 停止
-AI_extrapolation --stop
+AI_extrapolation.sh --stop
 # 重启
-AI_extrapolation --restart
+AI_extrapolation.sh --restart
 # 帮助
-AI_extrapolation -h
-AI_extrapolation --help
+AI_extrapolation.sh -h
+AI_extrapolation.sh --help
 ```
