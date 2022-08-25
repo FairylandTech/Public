@@ -4,4 +4,7 @@
 out
 gen
 
+# jupyter
+.ipynb_checkpoints/
+
 
