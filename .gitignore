@@ -3,6 +3,7 @@
 *.iml
 out
 gen
+.vscode
 
 # jupyter
 .ipynb_checkpoints/
