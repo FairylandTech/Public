@@ -4,28 +4,35 @@
 
 [![author](https://img.shields.io/badge/Author-Alice-orange)](https://res.abeim.cn/api/qq/?qq=489261538) [![github](https://img.shields.io/badge/Github-AliceEngineerPro-green)](https://github.com/AliceEngineerPro) ![type](https://img.shields.io/badge/Type-Deployment-blue) ![editor](https://img.shields.io/badge/Editor-Typoar-yellow) ![file](https://img.shields.io/badge/File-Markdown-orange) ![version](https://img.shields.io/badge/Version-1.0.3-blue) ![docs](https://img.shields.io/badge/Docs-Passing-brightgreen) ![](https://img.shields.io/badge/%E7%AD%89%E6%88%91%E4%BB%A3%E7%A0%81%E7%BC%96%E6%88%90-%E5%A8%B6%E4%BD%A0%E4%B8%BA%E5%A6%BB%E5%8F%AF%E5%A5%BD-red)
 
-:rocket: **以使用 Typora 获得更好视觉**
+🚀 **以使用 [Typora](https://typora.io/) 获得更好的视觉效果**
 
-:rocket: **本地编辑文档**
+🚀 **使用 Visual Studio Code, 推荐插件 [Office Viewer(Markdown Editor)](https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-office)**
+
+🚀 **本地编辑文档**
 
 - Windows (cmd)
 
   ```bash
-  curl -O https://raw.githubusercontent.com/AliceEngineerPro/AliceEngineerProPublic/ReleaseMaster/work_space/explain/AI_DeployRadarHelpDocs.md
+  curl -o Deployment_help.md https://raw.githubusercontent.com/AliceEngineerPro/AliceEngineerProPublic/ReleaseMaster/work_space/radar_extrapolation/README.md
   ```
-
 - Windows (powershell)
 
-  ```bash
-  Start-BitsTransfer -Source "https://raw.githubusercontent.com/AliceEngineerPro/AliceEngineerProPublic/ReleaseMaster/work_space/explain/AI_DeployRadarHelpDocs.md" -Destination "AI.md"
+  ```powershell
+  Start-BitsTransfer -Source "https://raw.githubusercontent.com/AliceEngineerPro/AliceEngineerProPublic/ReleaseMaster/work_space/radar_extrapolation/README.md" -Destination "Deployment_help.md"
   ```
-
 - linux
 
   ```bash
+  # curl
+  curl -o Deployment_help.md https://raw.githubusercontent.com/AliceEngineerPro/AliceEngineerProPublic/ReleaseMaster/work_space/radar_extrapolation/README.md
+  # wget
+  wget --output-document=Deployment_help.md https://raw.githubusercontent.com/AliceEngineerPro/AliceEngineerProPublic/ReleaseMaster/work_space/radar_extrapolation/README.md
   ```
+- Mac OS
 
-  
+  ```bash
+  curl -o Deployment_help.md https://raw.githubusercontent.com/AliceEngineerPro/AliceEngineerProPublic/ReleaseMaster/work_space/radar_extrapolation/README.md
+  ```
 
 ✨ **写在前面的话:**
 
@@ -74,7 +81,6 @@ sudo apt update
 2. 安装NVIDIA驱动的准备工作
 
 - 1. 安装lightdm
-
 - 2. 安装依赖
 - 3. 屏蔽nouveau驱动
 
@@ -85,8 +91,8 @@ sudo wget -P /etc/modprobe.d/ -O https://blog.alicehome.ltd/share_files/workspac
 sudo update-initramfs -u
 lsmod | grep nouveau
 ```
-- 4. 屏蔽nouveau驱动
 
+- 4. 屏蔽nouveau驱动
 - 确保选项NVIDIA GPU和PCIe网络适配器与相应的驱动程序通信
 
 ```bash
