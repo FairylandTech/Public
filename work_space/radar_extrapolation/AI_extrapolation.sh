@@ -1,13 +1,13 @@
 #!/bin/bash
 #########################################################################
-# File Name: AI_extrapolation.sh
+# File Name: management_status_to_radar.sh
 # Nickname: Alice(From Chengdu.China)
 # Position: IT.Engineer
 # TEL: +86-17313081751
 # WeChat: AliceEngineerT
 # QQNumber: 489261538
 # Telegram: @AliceEngineer
-# E-mail(Chinese Mainland): private.profession@foxmail.com
+# E-mail(Chinese Mainland): alice_engineer@yeah.net
 # E-mail(Global): alice.engineer.pro@gmail.com
 # Created Time: 2022年07月27日 星期三 10时01分18秒
 #########################################################################
@@ -22,7 +22,7 @@ static_user() {
     environment_config
   else
     {
-      printf "Insufficient Permissions, Use root Privileges\r\r\n"
+      printf "Insufficient Permissions, Use root Privileges\n"
     }
   fi
 }
@@ -35,8 +35,8 @@ environment_config() {
     {
       local str_a="Error: Not Found Anaconda"
       local str_b="Please install Anaconda or Add Anaconda to the environment variable (User or System)"
-      printf "\033[41;37m %s \033[0m\r\r\n" "$str_a"
-      printf "\033[41;37m %s \033[0m\r\r\n" "$str_b"
+      printf "\033[41;37m %s \033[0m\n" "$str_a"
+      printf "\033[41;37m %s \033[0m\n" "$str_b"
     }
   fi
 }
@@ -45,14 +45,14 @@ run_project() {
   static_user
   mkdir -p "$PROJECT_HOME"/logs
   local str_a="Please check program path"
-  cd "$(PROJECT_HOME)" || printf "\033[41;37m Error: Not Found %s \033[0m\r\r\n" "$PROJECT_HOME" && printf "\033[41;37m %s \033[0m\r\r\n" "$str_a"
+  cd "$PROJECT_HOME" || printf "\033[41;37m Error: Not Found %s \033[0m\n" "$PROJECT_HOME" && printf "\033[41;37m %s \033[0m\n" "$str_a"
   nohup python -u run.py >./logs/run.log 2>&1 &
   printf "Output log file to: %s/logs/run.log" "$PROJECT_HOME"
 }
 
 start_project() {
   if [ "$(pgrep run | wc -l)" = 1 ]; then
-    printf "Running\r\r\n"
+    printf "Running\n"
   else
     {
       run_project
@@ -65,33 +65,32 @@ stop_project() {
     sudo kill "$(pgrep run)"
   else
     {
-      printf "Please execute start\r\r\n"
+      printf "Please execute start\n"
     }
   fi
 }
 
 restart_project() {
   stop_project
+  printf "wait 10s\n"
   sleep 10
-  printf "wait 10s\r\r\n"
   start_project
 }
 
 # main
-while true;
-do
+while true; do
   case $1 in
   --start)
-    start_project;
-    break;
+    start_project
+    break
     ;;
   --stop)
-    stop_project;
-    break;
+    stop_project
+    break
     ;;
   --restart)
-    restart_project;
-    break;
+    restart_project
+    break
     ;;
   -h | --help)
     printf "
@@ -99,12 +98,12 @@ do
           --start         Start Service
           --stop          Stop Service
           --restart       Restart Service
-          -h, --help      display this help and exit\r\r\n";
-    break;
+          -h, --help      display this help and exit\n"
+    break
     ;;
   *)
-    options_error="Invalid option, Please execute -h or --help";
-    printf "\033[41;37m %s \033[0m\r\r\n" "$options_error";
+    options_error="Invalid option, Please execute -h or --help"
+    printf "\033[41;37m %s \033[0m\n" "$options_error"
     break
     ;;
   esac
