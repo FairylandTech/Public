@@ -1,9 +1,8 @@
 #!/bin/bash
 #########################################################################
-# File Name: management_to_radar.sh
+# File Name: management_radar.sh
 # Nickname: Alice(From Chengdu.China)
 # Position: IT.Engineer
-# TEL: +86-17313081751
 # WeChat: AliceEngineerT
 # QQNumber: 489261538
 # Telegram: @AliceEngineer
@@ -13,19 +12,19 @@
 #########################################################################
 
 # Global Variables
-PROJECT_HOME=""
-CONDA_ENVIRONMENT_NAME=""
+project_home=""
+conda_environment_name=""
 
 # Change Anaconda --> $(ENVIRONMENT_NAME)
 environment_config() {
   if [ "$(conda --version | wc -l)" = 1 ]; then
-    conda activate "$CONDA_ENVIRONMENT_NAME"
+    conda activate "$conda_environment_name"
   else
     {
       local str_a="Error: Not Found Anaconda"
       local str_b="Please install Anaconda or Add Anaconda to the environment variable (User or System)"
-      printf "\033[41;37m %s \033[0m\n" "$str_a"
-      printf "\033[41;37m %s \033[0m\n" "$str_b"
+      printf "\m[41;37m %s \m[0m\n" "$str_a"
+      printf "\m[41;37m %s \m[0m\n" "$str_b"
       exit 1
     }
   fi
@@ -37,7 +36,7 @@ static_user() {
     environment_config
   else
     {
-      printf "\033[41;37mInsufficient Permissions, Use root Privileges\033[0m\n"
+      printf "\m[41;37mInsufficient Permissions, Use root Privileges\m[0m\n"
       exit 1
     }
   fi
@@ -45,12 +44,12 @@ static_user() {
 
 run_project() {
   static_user
-  mkdir -p "${PROJECT_HOME}/logs"
+  mkdir -p "${project_home}/logs"
   local str_a="Please check program path"
-  cd "${PROJECT_HOME}" || printf "\033[41;37m Error: Not Found %s \033[0m\n" "${PROJECT_HOME}" && printf "\033[41;37m %s \033[0m\n" "$str_a"
+  cd "${project_home}" || printf "\m[41;37m Error: Not Found %s \m[0m\n" "${project_home}" && printf "\m[41;37m %s \m[0m\n" "$str_a"
   cp run.py radar_run.py
   nohup python -u radar_run.py >./logs/radar_run.log 2>&1 &
-  printf "Output log file to: %s/logs/run.log" "$PROJECT_HOME"
+  printf "Output log file to: %s/logs/run.log" "$project_home"
 }
 
 start_project() {
@@ -106,7 +105,7 @@ while true; do
     ;;
   *)
     options_error="Invalid option, Please execute -h or --help"
-    printf "\033[41;37m %s \033[0m\n" "$options_error"
+    printf "\m[41;37m %s \m[0m\n" "$options_error"
     break
     ;;
   esac
