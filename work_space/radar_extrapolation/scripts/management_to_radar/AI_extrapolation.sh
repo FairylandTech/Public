@@ -1,6 +1,6 @@
 #!/bin/bash
 #########################################################################
-# File Name: management_status_to_radar.sh
+# File Name: management_to_radar.sh
 # Nickname: Alice(From Chengdu.China)
 # Position: IT.Engineer
 # TEL: +86-17313081751
@@ -16,17 +16,6 @@
 PROJECT_HOME=""
 CONDA_ENVIRONMENT_NAME=""
 
-# Change User --> root
-static_user() {
-  if [ "$(whoami)" = root ]; then
-    environment_config
-  else
-    {
-      printf "Insufficient Permissions, Use root Privileges\n"
-    }
-  fi
-}
-
 # Change Anaconda --> $(ENVIRONMENT_NAME)
 environment_config() {
   if [ "$(conda --version | wc -l)" = 1 ]; then
@@ -37,21 +26,35 @@ environment_config() {
       local str_b="Please install Anaconda or Add Anaconda to the environment variable (User or System)"
       printf "\033[41;37m %s \033[0m\n" "$str_a"
       printf "\033[41;37m %s \033[0m\n" "$str_b"
+      exit 1
+    }
+  fi
+}
+
+# Change User --> root
+static_user() {
+  if [ "$(whoami)" = root ]; then
+    environment_config
+  else
+    {
+      printf "\033[41;37mInsufficient Permissions, Use root Privileges\033[0m\n"
+      exit 1
     }
   fi
 }
 
 run_project() {
   static_user
-  mkdir -p "$PROJECT_HOME"/logs
+  mkdir -p "${PROJECT_HOME}/logs"
   local str_a="Please check program path"
-  cd "$PROJECT_HOME" || printf "\033[41;37m Error: Not Found %s \033[0m\n" "$PROJECT_HOME" && printf "\033[41;37m %s \033[0m\n" "$str_a"
-  nohup python -u run.py >./logs/run.log 2>&1 &
+  cd "${PROJECT_HOME}" || printf "\033[41;37m Error: Not Found %s \033[0m\n" "${PROJECT_HOME}" && printf "\033[41;37m %s \033[0m\n" "$str_a"
+  cp run.py radar_run.py
+  nohup python -u radar_run.py >./logs/radar_run.log 2>&1 &
   printf "Output log file to: %s/logs/run.log" "$PROJECT_HOME"
 }
 
 start_project() {
-  if [ "$(pgrep run | wc -l)" = 1 ]; then
+  if [ "$(pgrep radar_run | wc -l)" = 1 ]; then
     printf "Running\n"
   else
     {
@@ -61,8 +64,8 @@ start_project() {
 }
 
 stop_project() {
-  if [ "$(pgrep run | wc -l)" = 1 ]; then
-    sudo kill "$(pgrep run)"
+  if [ "$(pgrep radar_run | wc -l)" = 1 ]; then
+    sudo kill "$(pgrep radar_run)"
   else
     {
       printf "Please execute start\n"
