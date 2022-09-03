@@ -1,14 +1,9 @@
 #!/bin/bash
 #########################################################################
-# File Name: management_radar.sh
-# Nickname: Alice(From Chengdu.China)
-# Position: IT.Engineer
-# WeChat: AliceEngineerT
-# QQNumber: 489261538
-# Telegram: @AliceEngineer
-# E-mail(Chinese Mainland): alice_engineer@yeah.net
-# E-mail(Global): alice.engineer.pro@gmail.com
-# Created Time: 2022年07月27日 星期三 10时01分18秒
+# @Filename: management_radar.sh
+# @Nickname: Alice(From Chengdu.China)
+# @Homepage: https://github.com/AliceEngineerPro
+# @Created Time: 2022年07月27日 星期三 10时01分18秒
 #########################################################################
 
 # Global Variables
@@ -42,6 +37,7 @@ static_user() {
   fi
 }
 
+# run 
 run_project() {
   static_user
   mkdir -p "${project_home}/logs"
@@ -52,6 +48,7 @@ run_project() {
   printf "Output log file to: %s/logs/run.log" "$project_home"
 }
 
+# start
 start_project() {
   if [ "$(pgrep radar_run | wc -l)" = 1 ]; then
     printf "Running\n"
@@ -62,6 +59,7 @@ start_project() {
   fi
 }
 
+# stop
 stop_project() {
   if [ "$(pgrep radar_run | wc -l)" = 1 ]; then
     sudo kill "$(pgrep radar_run)"
@@ -72,6 +70,7 @@ stop_project() {
   fi
 }
 
+# restart
 restart_project() {
   stop_project
   printf "wait 10s\n"
