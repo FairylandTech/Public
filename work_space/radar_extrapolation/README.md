@@ -52,12 +52,12 @@
 | [Anaconda官网](https://www.anaconda.com/products/distribution)            |
 | [PyTorch官网](https://pytorch.org)                                        |
 
-6. **域名: `blog.alicehome.ltd` 的所有下载链接, 如不可用请电邮: alice_engineer@yeah.net**
+6. **域名: `alicehome.ltd` 的所有下载链接, 如不可用请电邮: alice_engineer@yeah.net**
 7. **如有其他问题请及时取得联系**🔥
 
 - 联系方式
-  - E-mail: alice.engineer.pro@gmail.com(Global), alice_engineer@yeah.net(Chinese Mainland)
-  - Telegram: @AliceEngineer
+  - E-mail(Chinese Mainland): `alice_engineer@yeah.net`
+  - Telegram: [@AliceEngineer](https://t.me/AliceEngineerPro)
 
 # Part1. 环境部署
 
@@ -71,7 +71,7 @@
 
 ```bash
 sudo mv /etc/apt/sources.list /etc/apt/sources.list.bak
-sudo wget -P /etc/apt/ -O sources.list https://blog.alicehome.ltd/share_files/workspace/radar_deploy/sources.list
+sudo wget -P /etc/apt/ -O sources.list https://blog.alicehome.ltd/share/workspace/radar_deploy/sources.list
 sudo apt update
 ```
 
@@ -84,7 +84,7 @@ sudo apt update
 ```bash
 sudo apt-get install lightdm
 sudo apt-get install gcc g++ make
-sudo wget -P /etc/modprobe.d/ -O https://blog.alicehome.ltd/share_files/workspace/radar_deploy/blacklist-nouveau.conf
+sudo wget -P /etc/modprobe.d/ -O https://blog.alicehome.ltd/share/workspace/radar_deploy/blacklist-nouveau.conf
 sudo update-initramfs -u
 lsmod | grep nouveau
 ```
@@ -98,7 +98,7 @@ sudo vim /etc/default/grub
 
 - 在"GRUB_CMDLINE_LINUX_DEFAULT="之后，在引号中添加"pci=realloc=off"，如下所示:
 
-![](https://file.share.alicehome.ltd/workspace/markdown/radra_tongliao/update_grub.png)
+![](https://blog.alicehome.ltd/oss/workspace/markdown/radra_tongliao/update_grub.png)
 
 - 更新grub, 后重启
 
@@ -140,13 +140,13 @@ nvidia-smi
 nvidia-smi
 ```
 
-![nvidia-smi](https://file.share.alicehome.ltd/workspace/markdown/radra_tongliao/nvidia-smi.png)
+![nvidia-smi](https://blog.alicehome.ltd/oss/workspace/markdown/radra_tongliao/nvidia-smi.png)
 
 [**官网下载CUDA Toolkit**](https://developer.nvidia.com/cuda-toolkit-archive)
 
 2. 选择对应cuda版本和系统, 按照官网提供的方式安装
 
-![cuda-select](https://file.share.alicehome.ltd/workspace/markdown/radra_tongliao/cuda-select.jpg)
+![cuda-select](https://blog.alicehome.ltd/oss/workspace/markdown/radra_tongliao/cuda-select.jpg)
 
 3. 添加环境变量
 
@@ -186,7 +186,7 @@ nvidia-smi
 
 [**官网**](https://developer.nvidia.com/rdp/cudnn-download) 下载安装包, 对应cuda版本
 
-![cudnn-select](https://file.share.alicehome.ltd/workspace/markdown/radra_tongliao/cudnn-select.jpg)
+![cudnn-select](https://blog.alicehome.ltd/oss/workspace/markdown/radra_tongliao/cudnn-select.jpg)
 
 3. 解压并添加环境变量
 
@@ -289,7 +289,7 @@ pip install <Package Name> ... <Package Name>
 pip install <Package Name> ... <Package Name> --extra-index-url <Url>
 ```
 
-![python_install](https://file.share.alicehome.ltd/workspace/markdown/radra_tongliao/pytorch_install.png)
+![python_install](https://blog.alicehome.ltd/oss/workspace/markdown/radra_tongliao/pytorch_install.png)
 
 **Tips:** 若提示找不到 `pip3` , 则替换 `pip`
 
