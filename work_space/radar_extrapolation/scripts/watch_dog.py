@@ -23,7 +23,8 @@ class FileEventHandler(FileSystemEventHandler):
             pass
         else:
             path = os.path.abspath(event.src_path)
-            print(f'mv {path} {TAG_PATH}')
+            os.system(f'mv {path} {TAG_PATH}')
+            # print(f'mv {path} {TAG_PATH}')
 
 
 if __name__ == "__main__":
