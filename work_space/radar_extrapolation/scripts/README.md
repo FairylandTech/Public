@@ -4,19 +4,18 @@
 
 # management_radar.sh
 
-## Part1: 修改脚本环境变量
+## Part1: 修改变量
 
 ```bash
-# 修改全局环境变量
 # 项目路径
 PROJECT_HOME=""
 # e.g:
 # PROJECT_HOME="/home/alice/project/ai_obj"
+
 # conda 运行环境的名称
 CONDA_ENVIRONMENT_NAME=""
 # e.g:
 # CONDA_ENVIRONMENT_NAME="radar_env_ai_obj"
-
 ```
 
 ## Part2: 脚本运行
@@ -56,6 +55,9 @@ TAG_PATH = r''
 ## Part2. 脚本运行
 
 ```bash
+# 依赖安装:
+pip install watchdog
+# 运行
 nohup <script path> > <logs path> 2>&1 &
 ```
 
