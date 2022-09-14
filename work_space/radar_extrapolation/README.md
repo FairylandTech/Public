@@ -57,7 +57,7 @@
 
 - 联系方式
   - E-mail(Chinese Mainland): `alice_engineer@yeah.net`
-  - Telegram: [@AliceEngineer](https://t.me/AliceEngineerPro)
+  - Telegram: [@AliceEngineer](https://t.me/AliceProfession) 
 
 # Part1. 环境部署
 
