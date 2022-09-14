@@ -304,6 +304,8 @@ pip install -r requirements.txt
 # Part3. 项目运行
 
 ```bash
+conda activate <conda virtualenv name>
+# Program path
 cd <program installed path>
 # TTY terminal or ssh terminal
 nohup python run.py >> <log path> 2>&1 &
@@ -312,7 +314,8 @@ nohup python run.py >> <log path> 2>&1 &
 **注意事项:**
 
 1. 项目运行时, 当前目录必须是项目的根路径
-2. 如果使用脚本启动方式, 请先 `cd` 到项目的根路径再运行, 即:
+2. 项目运行必须使用 conda 创建的项目虚拟环境
+3. 如果使用脚本启动方式, 请先 `cd` 到项目的根路径再运行, 即:
 
 ```bash
 # shell script / python script
