@@ -270,7 +270,7 @@ sudo hdparm -i <Disk Mount Point>
 lsblk -dno SERIAL
 ```
 
-🔐**获取服务器硬件信息以 文本方式 电邮至: alice.engineer@yeah.net**
+🔐**获取服务器硬件信息以 文本方式 电邮至: alice_engineer@yeah.net** 
 
 ## 二. 获取pytorch
 
