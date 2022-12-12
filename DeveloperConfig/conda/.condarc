@@ -1,0 +1,8 @@
+show_channel_urls: true
+channels:
+  - defaults
+auto_activate_base: false
+proxy_servers:
+  http: http://127.0.0.1:65353
+  https: http://127.0.0.1:65353
+ssl_verify: false

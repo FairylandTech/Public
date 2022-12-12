@@ -1,0 +1,19 @@
+[user]
+	email = alice_engineer@yeah.net
+	name = AliceEngineer
+[http]
+	sslVerify = true
+	proxy = 127.0.0.1:65353
+[https]
+	proxy = 127.0.0.1:65353
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[init]
+	defaultBranch = ReleaseMaster
+[core]
+	autocrlf = input
+	safecrlf = true
+	eol = lf
