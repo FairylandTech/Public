@@ -15,5 +15,5 @@
 	defaultBranch = ReleaseMaster
 [core]
 	autocrlf = input
-	safecrlf = true
+	safecrlf = false
 	eol = lf
