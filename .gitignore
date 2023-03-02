@@ -7,5 +7,7 @@ gen
 
 # jupyter
 .ipynb_checkpoints/
+*.pdf
+
 
 
